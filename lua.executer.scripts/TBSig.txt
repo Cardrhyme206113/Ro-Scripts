@@ -1,0 +1,280 @@
+
+loadstring(_G[" rmdx "])() 
+it=Instance.new cn=CFrame.new ca=CFrame.Angles v3=Vector3.new rd=math.rad sin=math.sin pi=math.pi rn=math.random re=string.reverse ts=tostring asset="http://www.roblox.com/asset/?id=" inf=1/0
+wo=workspace Serv=game:GetService("Players") li=game:GetService("Lighting") deb=game:GetService("Debris") w=wait ns=16 cf=cn bc=bn mf=math.floor ud=UDim2.new cw=coroutine.wrap
+ClearClass=function(Object,Class) for _,v in pairs(Object:GetChildren()) do if v:IsA(Class) then v:Destroy() end end end ti=table.insert tr=table.remove
+qkey=false ekey=false rkey=false tkey=false ykey=false ukey=false pkey=false fkey=false gkey=false hkey=false jkey=false kkey=false lkey=false zkey=false xkey=false ckey=false vkey=false bkey=false nkey=false mkey=false semi=false
+meshes={Thorn="http://www.roblox.com/asset/?id=91264500",Tree="http://www.roblox.com/asset/?id=49257027",Sword="http://www.roblox.com/asset/?id=55205404",Spikes="http://www.roblox.com/asset/?id=56440892"}
+function re(par,obj) if type(par) ~= "userdata" or type(obj) ~= "string" then return nil end if par:findFirstChild(obj) then par[obj]:Remove'' end end 
+function invis(o) for i,v in pairs(o:children()) do if v:IsA("BasePart") then v.Transparency=1 end invis(v) end end 
+function newhats(p,o,o2) for i,v in pairs(p:children()) do if v:IsA("Hat") then local np=v.Handle:Clone'' np.Material = "SmoothPlastic" np.Transparency=0 np.Mesh.Scale=np.Mesh.Scale*1.1 np.Parent=o np.CFrame=v.Handle.CFrame stick2(np,o2,o) end end end 
+function stick2(hit2,hit,tostick) local weld=it("Weld") weld.Part0=tostick weld.Part1=hit2 local HitPos=hit.Position local CJ=cn(HitPos) local C0=hit2.CFrame:inverse() *CJ local C1=hit.CFrame:inverse() * CJ weld.C0=C1 weld.C1=C0 weld.Parent=hit2 end 
+so = function(id,par,vol,pit) q(function() -- Sound maker
+local sou = qi({"Sound",par or workspace,Volume=vol,Pitch=pit or 1,SoundId=id})
+wait() sou:play() wait(6) sou:Remove() end) end
+ids = {}
+ids.Slash = 10209645
+ids.Slash2 = 46760716
+ids.Slash3 = 10209640
+ids.Block = 'rbxasset://sounds\\metal.ogg'
+for i,v in pairs(ids) do 
+	if type(v)=='number' then 
+		ids[i]='http://www.roblox.com/asset/?id='..v
+	end
+	game:GetService("ContentProvider"):Preload(ids[i])
+end
+sTrail={}
+AddBV=function(str,cfr,par,deb)
+if not par then return end 
+if par:findFirstChild'TBBV' then par.TBBV:Remove() end 
+local tbbv=qi({'BodyVelocity',par,velocity=cfr.lookVector*str,maxForce=v3(1,1,1)*50000,Name='TBBV'}) de(tbbv,deb)
+end
+function Trail2(lopz,ob,waitz,col,thickz,ofz) q(function() ti(sTrail,ob)
+local oldpos=(ob.CFrame*ofz).p local lopz2=0
+local function loltr() local obp=(ob.CFrame*ofz).p lopz2=lopz2 + 1
+local mag=(oldpos-obp).magnitude 
+local tr=pa(ob,"trail","Block",0,0,0,false,false,0.5,0.15,col) tr.Anchored=true 
+tr.CFrame=cf(oldpos,obp) 
+tr.CFrame=tr.CFrame + tr.CFrame.lookVector* (mag/2)
+local trm=it("CylinderMesh",tr) trm.Scale=v3(5*thickz,mag*5,5*thickz)
+q(function() for i=5*thickz,0,-5*thickz/10 do trm.Scale=v3(i,mag*5,i) w() end tr:Remove'' end)
+tr.CFrame=tr.CFrame *ca(rd(90),0,0) oldpos=obp end 
+repeat loltr()
+w(waitz) until ft(sTrail,ob) == nil or lopz2 == lopz loltr() end) end
+tb=game.Players.LocalPlayer
+bp=tb.Backpack
+pg=tb.PlayerGui
+c=tb.Character
+he=c.Head
+to=c.Torso ClearClass(to,"BodyPosition") ClearClass(to,"BodyGyro")
+hu=c.Humanoid hu.PlatformStand=false hu.WalkSpeed=ns
+Button=false
+Key2=false
+a={} a.ClickHold=0 a.c=true a.a="None" a.b="None" a.Critical={20,3} ClearClass(c,"CharacterMesh") local hd=he:Clone''
+Misc={}
+to["Left Hip"].Part0=to to["Right Hip"].Part0=to to["Left Shoulder"].Part0=to to["Right Shoulder"].Part0=to
+if c:findFirstChild("Suit") then deb:AddItem(c["Suit"],0.035) end 
+m=it("Model",c) m.Name="Suit"
+xmod=it("Model",m)
+re(c,"Block") Block=it("BoolValue",c) Block.Value=false Block.Name="Block" invis(c)
+t=pa(m,"Torso","Block",0,0,0,false,false,0,0,ts(to.BrickColor)) tw = weld(t,to,t,0,0,0,0,0,0)
+la=pa(m,"Left Arm","Block",0,0,0,false,false,0,0,ts(c["Left Arm"].BrickColor)) law = weld(la,t,la,-1.5,1,0,0,0,0)
+ra=pa(m,"Right Arm","Block",0,0,0,false,false,0,0,ts(c["Right Arm"].BrickColor)) raw = weld(ra,t,ra,1.5,1,0,0,0,0)
+ll=pa(m,"Left Leg","Block",0,0,0,false,false,0,0,ts(c["Left Leg"].BrickColor)) llw = weld(ll,t,ll,-0.5,-1,0,0,0,0)
+rl=pa(m,"Right Leg","Block",0,0,0,false,false,0,0,ts(c["Right Leg"].BrickColor)) rlw = weld(rl,t,rl,0.5,-1,0,0,0,0)
+hd.Parent=m hd.Transparency=0 hw=weld(hd,t,hd,0,1.5,0,0,0,0) pcall(function() he.face.Face="Bottom" hd.face.Face="Front" end)
+local nbb=it("BlockMesh") nbb.Offset=v3(0,-1,0) nbb.Scale=v3(5,10,5)
+nbb:Clone''.Parent=la nbb:Clone''.Parent=ra nbb:Clone''.Parent=ll nbb:Clone''.Parent=rl 
+nbb:Clone''.Parent=t t.Mesh.Offset=v3(0,0,0) t.Mesh.Scale=Vector3.new(10,10,5) 
+pcall(function() c.Shirt:Remove'' end) pcall(function() c.Pants:Remove'' end) 
+to["Left Hip"].Part0=t to["Right Hip"].Part0=t to["Left Shoulder"].Part0=t to["Right Shoulder"].Part0=t
+function rayHit(wai,lolk,weplol,adjus,magz,mind,maxd,gain) local DebounceTable2={} q(function()
+local hitx=0 local tymzup=false q(function() w(wai) tymzup=true end) 
+repeat w() local tries=0 local bhit,bpos=nil,v3(999,999,999)
+repeat tries=tries + 1 local xx=0 local yy=0 if tries==1 then xx=1 elseif tries==2 then xx=-1 elseif tries == 3 then yy=1 elseif tries == 4 then yy=-1 elseif tries == 5 then xx=-1 yy=-1 elseif tries == 6 then xx,yy=1,1 elseif tries == 7 then xx,yy=-1,1 elseif tries == 8 then xx,yy=1,-1 end 
+bhit,bpos=ray((weplol.CFrame *adjus *cf(xx,yy,-0.8)).p,weplol.Position - (weplol.CFrame *adjus *cf(0,0,2)).p)
+if bhit ~= nil and (bpos - weplol.Position).magnitude < magz+0.8 then break end until tries > 8
+if bhit==nil or (bpos - weplol.Position).magnitude > magz+0.8 then else local brea=false
+for i,v in pairs(bhit.Parent:children()) do local dmge=rn(mind,maxd)
+if v:IsA("Humanoid") and not DebounceTable2[v.Parent.Name] then DebounceTable2[v.Parent.Name]=true Dmgz(false,v,dmge,bhit)  hitx=hitx+1 brea=true break end end
+if bhit.Parent ~= workspace and not brea then for i,v in pairs(bhit.Parent.Parent:children()) do local dmge=rn(mind,maxd)
+if v.Parent:findFirstChild("Humanoid") and not DebounceTable2[v.Parent.Parent.Name] then DebounceTable2[v.Parent.Parent.Name]=true Dmgz(false,v.Parent.Humanoid,dmge,bhit) hitx=hitx+1 break end end
+end 
+end until hitx >= lolk or tymzup end) end
+function ft(tablez,item) for i=1,#tablez do if tablez[i] == item then return i end end return nil end
+local DBDH={}
+function Dmgz(blockz,aihu,dmgzz2,pos) if ft(DBDH,aihu.Parent) then return end if aihu.Health==0 or aihu.Parent.Name=="TigerBloodd" then return end if aihu.Parent:findFirstChild("ForceField") then return end dmgdeb2=true q(function() if (aihu.Parent:findFirstChild("Block") and aihu.Parent.Block:IsA("BoolValue") and aihu.Parent.Block.Value and not blockz) or pos.Name:lower()=="shield" then splat2(pos.Position,"Block!") w(0.2) return end 
+local dmgzz=dmgzz2 if game:service'Players':findFirstChild(aihu.Parent.Name) == nil then dmgzz=dmgzz*1.5 end ti(DBDH,aihu.Parent) if rn(1,a.Critical[1]) == 1 then aihu:TakeDamage(dmgzz*a.Critical[2]) dmgzz="Crit! " ..ts(dmgzz*a.Critical[2]) else aihu:TakeDamage(dmgzz) end if not pos then return end splat2(pos.Position,dmgzz) q(function() w(0.08) tr(DBDH,ft(DBDH,aihu.Parent)) end)
+end) end
+function splat2(pos,dmge)
+local dbr=it("Model",workspace) local colz2="Bright red" if ts(dmge)=="Block!" then colz2="Bright blue" end
+dbr.Name=ts(dmge) local dbri=pa(dbr,"Head","Block",1,0,1,false,false,0,0,colz2) it("Humanoid",dbr).MaxHealth=0 dbri.CanCollide=false
+dbri.Anchored=true dbri.CFrame=cf(pos + v3(rn(-15,15)/10,3,rn(-15,15)/10)) game:service'Debris':AddItem(dbr,0.5) end
+Cylinder=function(p,x,y,z) it("CylinderMesh",p).Scale=v3(x,y,z) end mp=3500 maxmp=3500
+SpecialMesh=function(p,x,y,z,ty) local specialmesh=it("SpecialMesh",p) specialmesh.MeshType=ty or "Block" specialmesh.Scale=v3(x,y,z) end
+function SpawnSword(pos,sc,dmg,col,mind,maxd) if pos == nil then return end q(function() MakeCrater(pos.p+v3(0,2,0),3,5,3)
+GlowMesh(false,"Sphere",t,v3(7*sc,1.5*sc,7*sc),col,pos,0.1,1,0.05) 
+local pro = pa(xmod,"","Block",5*sc,2*sc,5*sc,true,true,0,0,"Really black") qi({"Fire",pro,Size=5})
+local prom = qi({"SpecialMesh",pro,Scale=v3(3*sc,3*sc,3*sc),MeshType="FileMesh",MeshId="http://www.roblox.com/asset/?id=55205404"})
+pro.CFrame = pos*ca(rd(-25),0,0)*cn(0,-3*sc,0) local cff = pro.CFrame for i=0.1,1,0.15 do pro.CFrame=cff*cn(0,3*sc*i,0)*ca(0,0,0)*ca(0,0,0) wait() end
+local rr = sc*1.5 
+GetRegion(pro.Position-v3(rr,rr,rr),pro.Position+v3(rr,rr,rr),function(v) 
+v.Humanoid.PlatformStand = true 
+local bpp = qi({"BodyVelocity",v.Torso,maxForce=v3(1/0,1/0,1/0),velocity=cn(pro.Position,v.Torso.Position+v3(0,20,0)).lookVector*40}) 
+Dmgz(false,v.Humanoid,rn(mind,maxd),v.Torso)  wait(0.15) bpp:Remove() v.Humanoid.PlatformStand = false end) wait(1) for i=1,0,-0.15 do pro.CFrame=cff*cn(0,3*sc*i,0)*ca(0,0,0)*ca(0,0,0) wait() end pro:Remove() end)
+end
+
+function addmp(mpz) mp=mp + mpz if mp > maxmp then mp=maxmp end end
+ 
+Armb=true Armb2=true
+Legb=true Legb2=true 
+function Armz(ison) Armb=ison if ison then
+c["Left Arm"].Transparency=0 c["Right Arm"].Transparency=0 la.Transparency=1 ra.Transparency=1
+law.Part0=c["Left Arm"] law.C0=cf(0,1,0) raw.Part0=c["Right Arm"] raw.C0=cf(0,1,0) 
+else
+c["Left Arm"].Transparency=1 c["Right Arm"].Transparency=1 la.Transparency=0 ra.Transparency=0
+law.Part0=t law.C0=cf(-1.5,1,0) raw.Part0=t raw.C0=cf(1.5,1,0) 
+end end
+function Legz(ison) Legb=ison if ison then
+c["Left Leg"].Transparency=0 c["Right Leg"].Transparency=0 ll.Transparency=1 rl.Transparency=1
+llw.Part0=c["Left Leg"] llw.C0=cf(0,1,0) rlw.Part0=c["Right Leg"] rlw.C0=cf(0,1,0) 
+else
+c["Left Leg"].Transparency=1 c["Right Leg"].Transparency=1 ll.Transparency=0 rl.Transparency=0
+llw.Part0=t llw.C0=cf(-0.5,-1,0) rlw.Part0=t rlw.C0=cf(0.5,-1,0) 
+end end function Headz(ison) if ison then he.Transparency=0 else end end 
+Legz(true) Armz(true) newhats(c,hd,he)
+function NormalPose(inc) c2(tw,inc,3,0,0,0,0,0,0) c2(llw,inc,3,-0.5,-1,0,0,0,0) c2(rlw,inc,3,0.5,-1,0,0,0,0) c2(law,inc,3,-1.5,1,0,0,0,0) c1(raw,inc,3,1.5,1,0,0,0,0) end
+ 
+BusterQuake=function(min,max) fac=true
+c2(tw,0.04,3,0,0,0,0,50,0) c2(hw,0.04,3,0,1.5,0,0,-40,0) c1(raw,0.07,3,1.5,1,0,-140,0,-18) wait(1) -- do somthing c00l with sword
+c2(tw,0.09,3,0,0,0,0,-40,0) c2(hw,0.08,3,0,1.5,0,0,45,0) c1(raw,0.125,3,1.25,1,-0.5,23,-25,-18) GlowMesh(true,"http://www.roblox.com/asset/?id=20329976",to,v3(3,2,3),"Black",cn(-1,-1.5,-3),0.3,1,0.1)
+for i=1,7 do SpawnSword(FindGround(to.CFrame*cn(0,-2.75,-0.5+(-i*8)-i)),1+(i/10),15,"Dark green",min,max) wait(0.06) end 
+c2(law,0.07,3,-1.3,1,-0.2,30,0,18) c2(raw,0.07,3,1.3,1,-0.2,-30,-18,-18) c2(hw,0.07,3,0,1.5,0,0,0,0) c1(tw,0.07,3,0,0,0,0,0,0)fac=false
+end
+ 
+BusterShield=function(haomuch) fac=true
+hu.WalkSpeed=ns/3 c2(raw,0.07,3,1.35,1,0,-90,0,-90-15) c2(law,0.07,3,-1.5,0.5,0,-80,0,0) c1(xhaw,0.07,3,2,0.5,0,0,0,90) so(ids.Block,xmod["Blade"],1,0.7)  Block.Value=true
+repeat w() mp=mp - haomuch until mp < 5 or ky=="f"
+Block.Value=false hu.WalkSpeed=ns c2(law,0.125,3,-1.3,1,-0.2,30,0,18) c2(raw,0.125,3,1.3,1,-0.2,-30,-18,-18) c1(xhaw,0.125,3,0,0,-2,0,0,0) fac=false
+end
+ 
+BusterSpin=function(min,max)
+c2(tw,100,3,0,0,0,0,360,0) c2(tw,0.1,3,0,0,0,0,60,0) c2(raw,0.1,3,1,0.5,0,-35,180,-90) c1(xhaw,0.1,3,0,1.35,-1.75,-35,0,0)
+q(function() Trail2(15,xmod["Blade"],0.01,"White",0.4,cf(0,-1.75,0)) end) rayHit(1,3,xmod["Blade"],ca(0,0,0),3,min,max) AddBV(60,to.CFrame,to,0.2) so(ids.Slash,xmod["Blade"],1,0.6) c2(tw,0.15,3,0,0,0,0,-60,0) c2(xhaw,0.15,3,0,1.5,-1.5,-50,0,0) c1(raw,0.15,3,1,0.5,0,100,180,-90) wait(0.5)
+c2(xhaw,0.05,3,0,0,-2,0,0,0) c2(tw,0.05,3,0,0,0,0,0,0) c1(raw,0.05,3,1.3,1,-0.2,-30,-18,-18) cleanweld(tw,"a1")
+end
+
+
+BusterSlash=function(min,max)
+c2(tw,0.125,3,0,0,0,0,38,0) c2(raw,0.125,3,1.25,0.85,0,-140,0,45) c1(hw,0.125,3,0,1.35,0,-15,35,0) w(0.1) Trail2(15,xmod["Blade"],0.01,"White",0.4,cf(0,-1.75,0)) rayHit(1,1,xmod["Blade"],ca(0,0,0),5,15,35) 
+AddBV(60,to.CFrame,to,0.2) so(ids.Slash,xmod["Blade"],1,0.6) c2(tw,0.195,3,0,0,0,0,-25,0) c2(hw,0.175,3,0,1.35,0,15,-25,0) c2(raw,0.175,3,1.25,0.85,-0.5,-40,0,45) c1(xhaw,0.05,3,0,0,-2,0,0,0) --w(0.25/2)
+c2(law,0.07,3,-1.3,1,-0.2,30,0,18) c2(raw,0.07,3,1.3,1,-0.2,-30,-18,-18) c2(hw,0.07,3,0,1.5,0,0,0,0) c1(tw,0.07,3,0,0,0,0,0,0)fac=false
+end
+
+--[[BusterSlash2=function(min,max)
+c2(xhaw,xhaw,0.05,3,0,0,-2,0,0,0) c2(hw,0.1,3,0,1.5,0,0,-45,0) c1(raw,0.09,3,1.25,0.9,0,-130,0,-90) Trail2(15,xmod["Blade"],0.01,"White",0.4,cf(0,-1.75,0)) rayHit(1,1,xmod["Blade"],ca(0,0,0),5,15,35) 
+AddBV(60,to.CFrame,to,0.2) so(ids.Slash,xmod["Blade"],1,0.6) c2(xhaw,0.05,3,0,0,-2,0,0,0) c2(hw,0.1,3,0,1.5,0,0,35,0) c1(raw,0.1,3,1.25,0.9,0,0,0,-90) 
+c2(law,0.07,3,-1.3,1,-0.2,30,0,18) c2(raw,0.07,3,1.3,1,-0.2,-30,-18,-18) c2(hw,0.07,3,0,1.5,0,0,0,0) c1(tw,0.07,3,0,0,0,0,0,0)fac=false
+end]]--
+
+BusterRegenerate=function(haomuch)
+local crowns={}
+hu.WalkSpeed=0 c2(raw,0.07,3,1.5,1,0,-210,0,-50) c2(law,0.07,3,-1.5,1,0,-210,0,50) c1(xhaw,0.07,3,1.75,0.5,1.25,-160,-35,50-90) wait(0.25)
+c2(raw,0.125,3,1.5,0.5,-0.5,-90,-50,0) c2(law,0.125,3,-1.5,0.5,-0.5,-90,50,0) c1(xhaw,0.1,3,1.35,0,1.75,-180,0,50-90)
+for i=1,3 do
+local spi=pa(m,"","Block",0,0,0,false,false,1,0,"Bright yellow") spi.CanCollide=false spi.Anchored=true local spim=it("SpecialMesh",spi) spim.MeshType="FileMesh" spim.MeshId="http://www.roblox.com/asset/?id=20329976"
+spim.Scale=v3(i*3.5,15-((i/2)*3.5),i*3.5) q(function() for i=1,0.4,-0.05 do spi.Transparency=i w() end end) ti(crowns,spi) end
+q(function() local ysp=0 repeat ysp=ysp + 15 for ix,spi in pairs(crowns) do local ysp2=1 if ix%2==0 then ysp2=-1 end spi.CFrame=to.CFrame *cf(0,-2,0) *ca(0,rd(ysp*ysp2),0) end w() until a.c end)
+repeat w() addmp(haomuch) until mp>=maxmp or ky=="z" for i,v in pairs(crowns) do fade(v,0.1) end
+hu.WalkSpeed=ns c2(law,0.1,3,-1.3,1,-0.2,30,0,18) c2(raw,0.1,3,1.3,1,-0.2,-30,-18,-18) c1(xhaw,0.1,3,0,0,-2,0,0,0)
+end
+ 
+CreateBuster=function()
+handle=pa(xmod,"","Block",0.24,1.5,0.24,false,false,0,0.25,"Bright red") xhaw=weld(handle,handle,ra,0,0,-2,rd(-90),0,0) Cylinder(handle,1,1,1)
+for i=0,15,1 do hpa=pa(xmod,"","Block",0.25,0.05,0.25,false,false,0,0,"Really black") weld(hpa,hpa,handle,0,-.75+i/10,0,0,0,0) Cylinder(hpa,1.05,0.25,1.05) end
+hpa1=pa(xmod,"","Block",0.5,0.25,1.5,false,false,0,0,"Really black") weld(hpa1,hpa1,handle,0,0.75,0,0,0,0) it("BlockMesh",hpa1)
+bladep=pa(xmod,"","Block",0.25,3,1,false,false,0,0,"Dark stone grey") weld(bladep,bladep,hpa1,0,1.5,0.25,0,0,0) it("BlockMesh",bladep).Scale=v3(1,1,0.99)
+edge1=pa(xmod,"","Block",3,0.25,0.45,false,false,0,0.15,"Medium grey") weld(edge1,edge1,bladep,0,-0.125/2,0.725,0,rd(180),rd(90)) SpecialMesh(edge1,1,0.5,1,"Wedge")
+edge2=pa(xmod,"","Block",3,0.25,0.45,false,false,0,0.15,"Medium grey") weld(edge2,edge2,bladep,0,-0.125/2,0.725,0,rd(180),rd(270)) SpecialMesh(edge2,1,0.5,1,"Wedge")
+edge3=pa(xmod,"","Block",0.25,0.75,1,false,false,0,0,"Dark stone grey") weld(edge3,edge3,bladep,0,-1.875,0,rd(180),0,0) SpecialMesh(edge3,1,1,1,"Wedge")
+edge4=pa(xmod,"","Block",1.25,0.25,0.45,false,false,0,0.15,"Medium grey") edgew=weld(edge4,edge4,edge1,1.715,0,1.25,0,rd(-52.5),0) SpecialMesh(edge4,1,0.5,1,"Wedge")
+edge5=pa(xmod,"","Block",1.25,0.25,0.45,false,false,0,0.15,"Medium grey") edgew=weld(edge5,edge5,edge1,-1.715,-0.25/2,1.25,0,rd(52.5),rd(180)) SpecialMesh(edge5,1,0.5,1,"Wedge")
+edge6=pa(xmod,"","Block",0.425,0.25,0.45,false,false,0,0.15,"Medium grey") edgew=weld(edge6,edge6,edge1,1.425,0,0.7,0,rd(-57.5/2),0) SpecialMesh(edge6,1,0.5,1,"Wedge")
+edge7=pa(xmod,"","Block",0.425,0.25,0.45,false,false,0,0.15,"Medium grey") edgew=weld(edge7,edge7,edge6,0,-0.25/2,0,0,0,rd(180)) SpecialMesh(edge7,1,0.5,1,"Wedge")
+Blade=pa(xmod,"Blade","Block",0.25,4,1.5,false,false,1,0,"Institutional white") Bladew=weld(Blade,Blade,bladep,0,0.5,-0.25,0,0,0)
+rock=pa(xmod,"rock","Block",0.5,0.5,0.5,false,false,0,0,"Bright red") rockw=weld(rock,rock,handle,0,-1,0,0,0,0) rockm=it("SpecialMesh",rock) rockm.MeshId="http://www.roblox.com/asset/?id=9756362" rockm.Scale=v3(0.5,0.5,0.5)
+rock2=pa(xmod,"rock2","Block",0.5,0.5,0.5,false,false,0,0,"Really black") rock2w=weld(rock2,rock2,rock,0,0,0,0,0,0) rockm=it("SpecialMesh",rock2) rockm.MeshId="http://www.roblox.com/asset/?id=9756362" rockm.Scale=v3(0.5,0.5,0.5)
+of=pa(xmod,"Fiyah","Block",1,1,1,false,false,1,0,"Bright red") ofw=weld(of,of,Blade,0,0,0,0,0,0) for i=1,3 do qi({"Fire",of,Size=1,Color=Color3.new(170, 0, 0),SecondaryColor=Color3.new(0, 0, 0)}) qi({"PointLight",of,Range=10,Color=Color3.new(197, 0, 0)}) end
+for i,v in pairs(xmod:GetChildren()) do v.CanCollide=false end
+q(function() while ofw~=nil do for i=-360,360,5 do ofw.C0=cn(1,0,0)*ca(0,rd(i*4),0)*cn(0,math.sin(rd(i)),0) wait() end end end)
+q(function() while rock~=nil do for i=0,1,0.05 do rock.Transparency = i wait() end rock.Transparency = 1 wait(1) for i=1,0,-0.05 do rock.Transparency = i wait() end wait(4) end end)
+for i,v in pairs(xmod:GetChildren()) do if v.Name~="Blade" and v.Name~="Fiyah" then q(function() for i2=1,-0.5,-0.05 do v.Transparency=i2 wait() end end) end end
+end
+ 
+a.Act=function(Key,Bool)
+if Key=="x" and a.a=="None" and a.c then a.c=false
+a.a="Buster" Armz(false)
+c2(law,0.15,3,-1.3,1,-0.2,30,0,18) c1(raw,0.15,3,1.3,1,-0.2,-30,-18,-18) CreateBuster() a.c=true
+elseif Key=="x" and a.a=="Buster" and a.b=="None" and a.c then a.c=false
+for i,v in pairs(xmod:GetChildren()) do if v.Name~="Blade" and v.Name~="Fiyah" then q(function() for i2=0,1.5,0.05 do v.Transparency=i2 wait() end end) end end w(1)
+for i,v in pairs(xmod:GetChildren()) do v:Remove() end a.a="None"
+Legz(false) Armz(false) hu.WalkSpeed=ns NormalPose(0.1) Legz(true) Armz(true) a.c=true
+end
+end
+ 
+re(bp,"TBSig")
+bin=it("HopperBin",bp) bin.Name="TBSig"
+script.Parent=bin
+ 
+bin.Selected:connect(function(mouse) mou = mouse
+mouse.Button1Down:connect(function() 
+Button=true q(function() while true do w(0.1) if Button==true then a.ClickHold=a.ClickHold+0.1 else a.ClickHold=0 break end end end)
+q(function() while w() do if fac==true then bgg.maxTorque = v3(1/0,1/0,1/0) bgg.D = 50  bgg.cframe = cn(to.Position,v3(mouse.hit.p.x,to.Position.y,mouse.hit.p.z)) else bgg.maxTorque = v3(0,0,0) end end end)
+if a.a=="Buster" and a.b=="None" and qkey and Button and a.c and mp>=135 then a.c=false a.b="Rise Swords" mp=mp-135
+BusterQuake(35,40)
+a.c=true a.b="None"
+elseif a.a=="Buster" and a.b=="None" and ekey and Button and a.c and mp>=75 then a.c=false a.b="Spin" mp=mp-75
+BusterSpin(25,40)
+a.c=true a.b="None"
+elseif a.a=="Buster" and a.b=="None" and rkey and Button and a.c and mp>=75 then a.c=false a.b="Slash" mp=mp-75
+BusterSlash(25,35)
+a.c=true a.b="None"
+--[[elseif a.a=="Buster" and a.b=="None" and tkey and Button and a.c and mp>=75 then a.c=false a.b="Slash2" mp=mp-75
+BusterSlash2(25,35)
+a.c=true a.b="None"]]--
+elseif a.a=="Buster" and a.b=="None" and fkey and Button and a.c and mp>=45 then a.c=false a.b="Block" mp=mp-45
+BusterShield(3)
+a.c=true a.b="None"
+elseif a.a=="Buster" and a.b=="None" and zkey and Button and a.c and mp~=maxmp then a.c=false a.b="Mend"
+BusterRegenerate(5)
+a.c=true a.b="None"
+elseif a.a=="Buster" and a.b=="None" and ckey and Button and a.c then a.c=false a.b="Sit"
+hu.WalkSpeed=0 Legz(false) c2(tw,0.05,3,0,-1.5,0,-10,0,0) c2(llw,0.1,3,-0.5,-1,0,-80,-28,0) c2(rlw,0.1,3,0.5,-1,0,-80,28,0) c2(law,0.1,3,-1.3,1,0,15,0,15) c2(raw,0.1,3,1.3,1,0,-30,0,-20) c1(xhaw,0.06,3,-1,-1.5,-1.35,50,-20,-25)
+a.c=true
+elseif a.a=="Buster" and a.b=="Sit" and ckey and Button and a.c then a.c=false a.b="Get up"
+c2(law,0.07,3,-1.3,1,-0.2,30,0,18) c2(raw,0.07,3,1.3,1,-0.2,-30,-18,-18) c2(llw,0.07,3,-0.5,-1,0,0,0,0) c2(rlw,0.07,3,0.5,-1,0,0,0,0) c2(tw,0.07,3,0,0,0,0,0,0) c1(xhaw,0.07,3,0,0,-2,0,0,0)
+a.c=true a.b="None" Legz(true) hu.WalkSpeed=ns
+end
+end)
+ 
+mouse.Button1Up:connect(function() Button = false end)
+mouse.KeyDown:connect(function(k2) local k=k2:lower() Key2=true
+ky = ""
+if k2=="q" then qkey=true end if k2=="e" then ekey=true end if k2=="r" then rkey=true end if k2=="t" then tkey=true end if k2=="y" then ykey=true end if k2=="u" then ukey=true end if k2=="p" then pkey=true end if k2=="f" then fkey=true end if k2=="g" then gkey=true end if k2=="h" then hkey=true end if k2=="j" then jkey=true end if k2=="k" then kkey=true end if k2=="l" then lkey=true end if k2==";" then semi=true end if k2=="z" then zkey=true end if k2=="x" then xkey=true end if k2=="c" then ckey=true end if k2=="v" then vkey=true end if k2=="b" then bkey=true end if k2=="n" then nkey=true end if k2=="m" then mkey=true end 
+if a.a == "None" then 
+a.Act(k,true)
+else 
+a.Act(k,false)
+end
+end)
+ 
+mouse.KeyUp:connect(function(k2)
+if k2=="q" then qkey=false end if k2=="e" then ekey=false end if k2=="r" then rkey=false end if k2=="t" then tkey=false end if k2=="y" then ykey=false end if k2=="u" then ukey=false end if k2=="p" then pkey=false end if k2=="f" then fkey=false end if k2=="g" then gkey=false end if k2=="h" then hkey=false end if k2=="j" then jkey=false end if k2=="k" then kkey=false end if k2=="l" then lkey=false end if k2==";" then semi=false end if k2=="z" then zkey=false end if k2=="x" then xkey=false end if k2=="c" then ckey=false end if k2=="v" then vkey=false end if k2=="b" then bkey=false end if k2=="n" then nkey=false end if k2=="m" then mkey=false end 
+pcall(function()
+ky=k2:lower()
+end)
+Key2 = false end)
+end)
+bin.Deselected:connect(function(mouse) Button=false fac=false end)
+
+re(pg,"TBSig") raigcol="Bright red" raigcol2="New Yeller" raigcol3="Navy blue" raigcol4="Bright red"
+Gui=it("ScreenGui",pg) Gui.Name="TBSig"
+fr=it("Frame",Gui) fr.Size=ud(1,0,1,0) fr.Active=false fr.BackgroundTransparency=1
+mptray=it("TextLabel",fr) mptray.BackgroundColor3=BrickColor.new("Black").Color
+mptray.Size=ud(0.18,0,0.08,0) mptray.BorderSizePixel=0 mptray.Position=ud(0.41,0,0.025,0) mptray.Text=""
+mptext=it("TextLabel",mptray) mptext.BackgroundTransparency=1 mptext.Size=ud(1,0,0.5,0) mptext.Position = ud(0,0,0.1,0) mptext.TextColor3=BrickColor.new("White").Color
+mptext.FontSize="Size18" mptext.Font="ArialBold" mptext.ZIndex=2 mptext.Text="Rage Power"
+mptext2=it("TextLabel",mptray) mptext2.BackgroundTransparency=1 mptext2.Size=ud(1,0,0.5,0) mptext2.Position = ud(0,0,0.4,0) mptext2.TextColor3=BrickColor.new("White").Color
+mptext2.FontSize="Size18" mptext2.Font="ArialBold" mptext2.ZIndex=2 mptext2.Text="/"
+mpfill=it("ImageLabel",mptray) mpfill.BackgroundColor3=BrickColor.new(raigcol).Color mpfill.Image="http://www.roblox.com/asset/?id=48965808" mpfill.Size=ud(0.97,0,0.90,0) mpfill.Position=ud(0.015,0,0.05,0)
+sttray=it("ImageLabel",fr) sttray.BackgroundColor3=BrickColor.new("Black").Color
+sttray.Size=ud(0.2,0,0.055,0) sttray.BorderSizePixel=0 sttray.Position=ud(0.043,0,0.94,0) sttray.Image="http://www.roblox.com/asset/?id=48965808"
+sttext=it("TextLabel",fr) sttext.BackgroundTransparency=1
+sttext.Size=ud(0.2,0,0.055,0) sttext.BorderSizePixel=0 sttext.ZIndex=2 sttext.Position=ud(0.043,0,0.94,0)
+sttext.FontSize="Size18" sttext.Font="ArialBold" sttext.Text="Mode:" sttext.TextColor3=BrickColor.new("White").Color
+q(function() while w() do mptext2.Text = ts(mf(mp)).. "/" ..ts(mf(maxmp)) sttext.Text=" " ..a.a.. " [" ..a.b.. "] " mpfill.Size=ud((0.97/maxmp)*mp,0,0.9,0) end end)
+q(function() while w() do if mp >= maxmp then local raigcolz=BrickColor.new(raigcol).Color local rr,gg,bb=raigcolz.r,raigcolz.g,raigcolz.b for xz=gg,gg-80,-5 do if mp < maxmp then mpfill.BackgroundColor3=BrickColor.new(raigcol).Color break end mpfill.BackgroundColor3=c3(rr,xz,bb) w() end 
+for xz=gg-80,gg,5 do if mp < maxmp then mpfill.BackgroundColor3=BrickColor.new(raigcol).Color break end mpfill.BackgroundColor3=c3(rr,xz,bb) w() end end end end) mp=maxmp
+fac = false bgg = it("BodyGyro",to)
+ 
+-- TigerBloodd
