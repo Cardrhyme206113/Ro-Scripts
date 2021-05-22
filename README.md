@@ -23,13 +23,12 @@ Please DM me (from discord) the .zip or .rar file of the scripts. You'll be writ
 
 **Card#9999**
 
-# License
+## License
 **None of these scripts are mine. All of their rights go to their creators / coders / authors.** If anyone of these scripts are yours and you want them to be deleted from the library, please DM **Card#9999** from discord. (Friend me first)
 
 
-# HELP
+## Help - Solutions For Known Problems
 
-    **Solutions of known problems**
 ![RO-SCRIPT LOGO](https://i.imgur.com/WPvGjq2.png)
 
  1. Scripts Not Working - I'm trying to import files to the executer / trying to import but can't see the files.
