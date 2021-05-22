@@ -1,1 +1,0 @@
-game.Players.LocalPlayer.Character.Head.Rank.Main:Remove()
