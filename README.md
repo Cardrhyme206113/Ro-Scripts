@@ -1,6 +1,8 @@
 # Welcome to Ro-Script!
 ![RO-SCRIPT LOGO](https://i.imgur.com/WPvGjq2.png)
 
+**[CLICK HERE TO SEE THE OFFICIAL RO-SCRIPT WEBSITE](https://cardrhyme206113.github.io/ro-script.html)**
+
 **1-Intruduction**
 Welcome To Ro-Script! A Rich Library For Roblox Lua Scripts. There are over 8000+ scripts! You can download them by going trough this tutorial:
 
